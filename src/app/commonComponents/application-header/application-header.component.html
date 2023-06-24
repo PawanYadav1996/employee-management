@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light header-shadow">
+  <div class="container-xxl">
+    <a
+      class="navbar-brand cursor-pointer"
+      href="https://google.com"
+      target="_blank"
+      ><span class="fs-5 fw-bold">Employee Management</span></a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse flex-grow-0"
+      id="navbarSupportedContent"
+    >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" *ngIf="authService.isLogin()">
+          <a
+            class="cursor-pointer text-decoration-style fs-5 nav-link"
+            routerLink="/employee/list"
+            routerLinkActive="active-header"
+            ><b>Employee</b></a
+          >
+        </li>
+        <li class="nav-item" *ngIf="authService.isLogin()">
+          <a
+            class="cursor-pointer text-decoration-style fs-5 nav-link"
+            routerLink="/teams/list"
+            routerLinkActive="active-header"
+            ><b>Teams Report</b></a
+          >
+        </li>
+        <li
+          class="nav-item"
+          routerLink="/home"
+          routerLinkActive="active"
+          *ngIf="authService.isLogin()"
+        >
+          <a class="nav-link cursor-pointer fs-5" (click)="authService.logOut()"
+            ><b>Log out</b></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

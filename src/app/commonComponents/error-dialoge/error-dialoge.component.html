@@ -1,0 +1,24 @@
+<div class="mt-2 align-items-center d-flex borderBottom" mat-dialog-title>
+  <div class="w-50 text-left">
+    <h2 class="mb-0 text-danger fw-bold" *ngIf="data.type === 'error'">
+      Error !!!
+    </h2>
+    <h2 class="mb-0 text-success fw-bold" *ngIf="data.type === 'success'">
+      Success !!!
+    </h2>
+  </div>
+  <div
+    class="text-end w-50 fs-4 cursor-pointer"
+    (click)="close()"
+    aria-label="Close"
+  >
+    <mat-icon>close</mat-icon>
+  </div>
+</div>
+
+<div mat-dialog-content>
+  <span class="fs-bold fs-6">{{ data.msg }}</span>
+</div>
+<div mat-dialog-actions class="text-end justify-content-end">
+  <button mat-raised-button color="primary" (click)="close()">Close</button>
+</div>

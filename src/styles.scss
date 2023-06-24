@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+@import "~@ng-select/ng-select/themes/default.theme.css";
+* {
+  font-family: "Poppins";
+}
+* {
+  scrollbar-width: 10px;
+  scrollbar-color: gray;
+}
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.mandatory-field:after {
+  content: "\002A";
+  color: $red;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.invalid-feedback-error {
+  // width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #dc3545 !important;
+}
+.card-shaodow {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

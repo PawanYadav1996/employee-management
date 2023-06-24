@@ -1,0 +1,348 @@
+<div class="container bg-white p-2 rounded">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="fw-bold fs-4">
+      <div class="d-flex mb-1">Add Employee details form</div>
+      <div style="font-size: 0.8rem; color: rgb(77, 85, 244)">
+        *All (*) fields are mandatory
+      </div>
+    </div>
+    <div>
+      <button
+        routerLink="/employee/list"
+        mat-raised-button
+        color="primary"
+        class="bg-primary text-white d-flex fs-5"
+      >
+        <mat-icon>backspace</mat-icon> Back
+      </button>
+    </div>
+  </div>
+  <hr />
+  <form [formGroup]="addEmployeeForm" (ngSubmit)="addEmployee()">
+    <div class="row">
+      <!-- <div class="col-sm-10 row mb-2"> -->
+      <div class="col-sm-6 mb-2">
+        <label
+          for="firstName"
+          class="form-label mb-1 mandatory-field theme-label-color theme-label-fs"
+          >First name
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="enter first name"
+          [ngClass]="{ 'is-invalid': form['firstName'].errors }"
+          name="firstName"
+          formControlName="firstName"
+          autocomplete="off"
+        />
+        <ng-container *ngIf="form['firstName'].errors">
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['firstName'].errors?.['required']"
+          >
+            First name is required
+          </div>
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['firstName'].errors?.['pattern']"
+          >
+            First name accepts only letters, space, hypen(-) and dots(.)
+          </div>
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['firstName'].errors?.['minlength']"
+          >
+            First name contains at least min 2 characters
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-sm-6 mb-2">
+        <label
+          for="lastName"
+          class="form-label mb-1 mandatory-field theme-label-color theme-label-fs"
+          >Last name
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="enter last name"
+          [ngClass]="{ 'is-invalid': form['lastName'].errors }"
+          name="lastName"
+          formControlName="lastName"
+          autocomplete="off"
+        />
+        <ng-container *ngIf="form['lastName'].errors">
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['lastName'].errors?.['required']"
+          >
+            Last name is required
+          </div>
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['lastName'].errors?.['pattern']"
+          >
+            Last name accepts only letters, space, hypen(-) and dots(.)
+          </div>
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['lastName'].errors?.['minlength']"
+          >
+            Last name contains at least min 1 characters
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-sm-6 mb-2">
+        <label
+          for="emailId"
+          class="form-label mb-1 mandatory-field theme-label-color theme-label-fs"
+          >Email Id
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="enter valid email address"
+          [ngClass]="{ 'is-invalid': form['emailId'].errors }"
+          name="emailId"
+          formControlName="emailId"
+          autocomplete="off"
+        />
+        <ng-container *ngIf="form['emailId'].errors">
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['emailId'].errors?.['required']"
+          >
+            Email is required.
+          </div>
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['emailId'].errors?.['pattern']"
+          >
+            Enter valid email address
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-sm-6 mb-2">
+        <label
+          for="gender"
+          class="form-label mb-1 mandatory-field theme-label-color theme-label-fs"
+          >Gender</label
+        >
+        <div class="radio-btn-group">
+          <div class="form-check form-check-inline checkbox-color">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              formControlName="gender"
+              id="genderMale"
+              value="male"
+              autocomplete="off"
+            />
+            <label class="form-check-label" for="genderMale">Male</label>
+          </div>
+          <div class="form-check form-check-inline checkbox-color">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              formControlName="gender"
+              id="genderFemale"
+              value="female"
+              autocomplete="off"
+            />
+            <label class="form-check-label" for="genderFemale">Female</label>
+          </div>
+        </div>
+        <ng-container *ngIf="form['gender'].errors?.['required']">
+          <div class="invalid-feedback d-block mt-0">Gender is required</div>
+        </ng-container>
+      </div>
+      <div class="col-sm-6 mb-3">
+        <label class="form-label mandatory-field">Date of birth</label>
+        <div class="position-relative">
+          <input
+            placeholder="Select the date *"
+            class="form-control"
+            id="dob"
+            formControlName="dob"
+            [matDatepicker]="regstartPicker"
+            [max]="maxAge"
+            [min]="minAge"
+            (click)="regstartPicker.open()"
+            autocomplete="off"
+          />
+          <div
+            class="position-absolute end-0 translate-middle"
+            [ngClass]="{
+              'top-30': !form['dob'].value,
+              'top-50': form['dob'].value
+            }"
+          >
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="regstartPicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #regstartPicker disabled="false"></mat-datepicker>
+          </div>
+          <ng-container *ngIf="form['dob'].errors">
+            <div
+              class="invalid-feedback d-block"
+              *ngIf="form['dob'].errors?.['required']"
+            >
+              Date of birth is required
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="col-sm-6 mb-2">
+        <label
+          for="mobile"
+          class="form-label mb-1 mandatory-field theme-label-color theme-label-fs"
+          >Phone number
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="enter phone number"
+          [ngClass]="{ 'is-invalid': form['mobile'].errors }"
+          name="mobile"
+          formControlName="mobile"
+          autocomplete="off"
+        />
+        <ng-container *ngIf="form['mobile'].errors">
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['mobile'].errors?.['required']"
+          >
+            Indian Phone number is required
+          </div>
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['mobile'].errors?.['pattern']"
+          >
+            Phone number is invalid
+          </div>
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['mobile'].errors?.['minlength']"
+          >
+            Phone number must contains 10 numbers
+          </div>
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['mobile'].errors?.['maxlength']"
+          >
+            Phone number can not exced 11 numbers
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-sm-6 mb-2">
+        <label
+          for="team"
+          class="form-label mb-1 mandatory-field theme-label-color theme-label-fs"
+          >Select Team
+        </label>
+        <ng-select
+          [items]="defaultTeamsList"
+          bindLabel="value"
+          bindValue="id"
+          formControlName="team"
+        >
+        </ng-select>
+        <ng-container *ngIf="form['team'].errors">
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['team'].errors?.['required']"
+          >
+            Team is required
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-sm-6 mb-2">
+        <label
+          for="designation"
+          class="form-label mb-1 mandatory-field theme-label-color theme-label-fs"
+          >Select designation
+        </label>
+        <ng-select
+          [items]="defaultDesignationList"
+          bindLabel="value"
+          bindValue="id"
+          formControlName="designation"
+        >
+        </ng-select>
+        <ng-container *ngIf="form['designation'].errors">
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['designation'].errors?.['required']"
+          >
+            Designation is required
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-sm-6 mb-2">
+        <label
+          for="salary"
+          class="form-label mb-1 mandatory-field theme-label-color theme-label-fs"
+          >Define Salary
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="enter salary in numbers (INR only)"
+          [ngClass]="{ 'is-invalid': form['salary'].errors }"
+          name="salary"
+          formControlName="salary"
+          autocomplete="off"
+        />
+        <ng-container *ngIf="form['salary'].errors">
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['salary'].errors?.['required']"
+          >
+            Salary is required
+          </div>
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['salary'].errors?.['pattern']"
+          >
+            Enter salary in number only
+          </div>
+        </ng-container>
+      </div>
+      <div class="col-sm-6 mb-2">
+        <label
+          for="role"
+          class="form-label mb-1 mandatory-field theme-label-color theme-label-fs"
+          >Select Role/level
+        </label>
+        <ng-select
+          [items]="defaultRolesList"
+          bindLabel="value"
+          bindValue="id"
+          formControlName="role"
+        >
+        </ng-select>
+        <ng-container *ngIf="form['role'].errors">
+          <div
+            class="invalid-feedback d-block mt-0"
+            *ngIf="form['role'].errors?.['required']"
+          >
+            Team is required
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <button class="mx-2" mat-raised-button (click)="resetForm()">
+        Reset
+      </button>
+      <button mat-raised-button color="primary" type="submit">
+        Add Employee
+      </button>
+    </div>
+    <!-- </div> -->
+  </form>
+</div>

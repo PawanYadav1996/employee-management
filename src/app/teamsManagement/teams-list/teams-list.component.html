@@ -1,0 +1,101 @@
+<div class="container bg-white p-4">
+  <div class="d-flex justify-content-between mb-2">
+    <div>
+      <h3 class="fs-3 fw-bold">Teams List</h3>
+      <!-- <button (click)="buttonPushEmplyeelList()">Enter</button> -->
+    </div>
+  </div>
+  <ng-container *ngIf="teamsList.length > 0; else noDataFound">
+    <ng-container *ngFor="let team of teamsList; let i = index">
+      <div [ngClass]="{ 'container-md px-0': true, }">
+        <div
+          matRipple
+          [matRippleCentered]="false"
+          [matRippleDisabled]="false"
+          [matRippleUnbounded]="false"
+          class="nav-wrapper row-bottom-border cursor-pointer my-4"
+        >
+          <div class="">
+            <div class="filters flex-row-padding">
+              <div class="width-type-three">
+                <div class="">
+                  <div class="label text-left stats-text">#</div>
+                  <div class="stats-value text-left">{{ i + 1 }}.</div>
+                </div>
+              </div>
+              <div class="width-type-two">
+                <div class="">
+                  <div class="label text-left stats-text">Team Name</div>
+                  <div class="stats-value text-left">
+                    {{ team.teamName | teamPipe }}
+                  </div>
+                </div>
+              </div>
+              <div class="width-type-four">
+                <div class="">
+                  <div class="label text-left stats-text">Members</div>
+                  <div class="stats-value text-left">
+                    {{ team.teamMembers.length }}
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="progress-bar-width"
+                id="{{ team.overallProgressOfTeam }}"
+              >
+                <div class="">
+                  <div class="label stats-text text-left">
+                    Team work progress
+                  </div>
+                  <div class="stats-value text-left">
+                    <div class="progress">
+                      <div
+                        class="progress-bar"
+                        role="progressbar"
+                        [ngStyle]="{
+                          width: getPercentageOfBar(team.overallProgressOfTeam)
+                        }"
+                        attr.aria-valuenow="{{ team.overallProgressOfTeam }}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                      >
+                        {{ team.overallProgressOfTeam }} %
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="width-type-two d-flex justify-content-end">
+                <div class="d-flex align-items-center">
+                  <div class="state-value cursor-pointer">
+                    <mat-icon
+                      [routerLink]="'/teams/list/' + team.teamName"
+                      class="fw-bold fs-3 text-primary"
+                      matTooltip="Check details of employee"
+                      >keyboard_arrow_right</mat-icon
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-template #noDataFound>
+    <h1 class="text-center fs-2">Opps !....No Team List found!!!</h1>
+    <h3 class="d-flex justify-content-center">
+      Please click&nbsp;
+      <span
+        routerLink="/employee/addEmployee"
+        class="text-primary fw-bold cursor-pointer"
+      >
+        here</span
+      >
+      &nbsp;to add an employee and that employee to a team.
+    </h3>
+  </ng-template>
+</div>

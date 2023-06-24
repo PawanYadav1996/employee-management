@@ -1,0 +1,29 @@
+.width-type-profile {
+  width: 27%;
+  flex: 0 0 27%;
+  flex-wrap: break-word;
+}
+.width-type-basicDetails {
+  width: 70%;
+  flex: 0 0 70%;
+  flex-wrap: break-word;
+}
+.reports-user-pic {
+  width: 80%;
+  aspect-ratio: 4/4;
+  object-fit: contain;
+}
+.labelLineHeight {
+  line-height: 10px;
+}
+.profileStyle {
+  background-color: rgb(178 178 231);
+  border-radius: 140px 10px 10px 140px;
+  box-shadow: 2px 2px 8px 9px rgba(0, 0, 0, 0.25);
+}
+.rightSideBorder {
+  border-right: 1px solid lightgray;
+}
+.width-33 {
+  width: 30%;
+}

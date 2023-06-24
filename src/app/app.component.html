@@ -1,0 +1,10 @@
+<app-application-header
+  *ngIf="authentication.isLogin()"
+></app-application-header>
+<div class="container-div" id="bgDiv">
+  <div class="mt-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<app-application-footer></app-application-footer>
+<app-loader-component></app-loader-component>

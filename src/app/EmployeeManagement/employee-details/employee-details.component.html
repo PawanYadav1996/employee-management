@@ -1,0 +1,138 @@
+<div class="container bg-white p-2 rounded">
+  <button
+    routerLink="/employee/list"
+    mat-raised-button
+    color="primary"
+    class="bg-primary text-white d-flex fs-5 mb-4"
+  >
+    <mat-icon>backspace</mat-icon> Back
+  </button>
+  <div class="d-flex justify-content-center profileStyle p-4 m-4">
+    <div class="d-flex width-type-profile">
+      <img
+        src="https://s3-us-west-2.amazonaws.com/hdor.gssltd.co.in/profileImages/male.png"
+        class="reports-user-pic"
+        onerror="this.onerror=null;this.src = 'https://s3-us-west-2.amazonaws.com/hdor.gssltd.co.in/profileImages/male.png'"
+      />
+    </div>
+    <div class="width-type-basicDetails">
+      <div class="d-flex row text-white">
+        <div class="col-sm-12 mb-4 d-flex align-items-center">
+          <mat-icon class="text-white">person</mat-icon
+          ><span class="fw-bold fs-4" id="name">{{ employeDetails.name }}</span>
+        </div>
+        <div class="col-sm-12 mb-4 d-flex align-items-center">
+          <mat-icon class="text-white fs-4"> email</mat-icon>&nbsp;
+          <span class="fw-bold fs-4" id="email">{{
+            employeDetails.email
+          }}</span>
+        </div>
+        <div class="col-sm-12 mb-4 d-flex align-items-center">
+          <mat-icon class="text-white fs-4"> perm_contact_calendar</mat-icon
+          >&nbsp;
+          <span class="fw-bold fs-4" id="email">{{ employeDetails.dob }}</span>
+        </div>
+        <div class="col-sm-12 mb-4 d-flex align-items-center">
+          <span class="material-icons">male</span>&nbsp;
+          <span class="fw-bold fs-4" id="email">{{
+            employeDetails.gender | gender
+          }}</span>
+        </div>
+        <div class="col-sm-12 mb-4 d-flex align-items-center">
+          <mat-icon class="text-white fs-4"> contact_phone</mat-icon>&nbsp;
+          <span class="fw-bold fs-4" id="email">{{
+            employeDetails.phoneNumber
+          }}</span>
+        </div>
+      </div>
+      <div class="d-flex">
+        <mat-card class="border-1 w-100 p-2">
+          <div class="d-flex row">
+            <div class="width-33 row mx-2 rightSideBorder">
+              <div class="col-sm-12 mb-2">
+                <label for="" class="mb-1 text-secondary">Team</label>
+                <br />
+                <span class="fw-bold fs-6">{{
+                  employeDetails.team | teamPipe | titlecase
+                }}</span>
+              </div>
+            </div>
+            <div class="width-33 row mx-2 rightSideBorder">
+              <div class="col-sm-12 mb-2">
+                <label for="" class="mb-1 text-secondary">Designation</label>
+                <br />
+                <span class="fw-bold fs-6">{{
+                  employeDetails.designation
+                    | designationPipe
+                    | truncateString : [13, "..."]
+                }}</span>
+              </div>
+            </div>
+            <div class="width-33 row mx-2">
+              <div class="col-sm-12 mb-2">
+                <label for="" class="mb-1 text-secondary">Role</label>
+                <br />
+                <span class="fw-bold fs-6">{{
+                  employeDetails.role
+                    | rolesPipe
+                    | truncateString : [13, "..."]
+                    | titlecase
+                }}</span>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="d-flex profileStyle p-4 m-4">
+    <div class="d-flex width-type-profile">
+      <span class="material-icons text-white" style="font-size: 10rem"
+        >home</span
+      >
+    </div>
+    <div class="d-flex row text-white">
+      <div class="col-sm-12 mb-2">
+        <label for="address" class="mb-1 text-secondary">Address</label>
+        <br />
+        <span class="fw-bold fs-4"
+          >{{ employeDetails.address | titlecase }},&nbsp;
+          {{ employeDetails.city | titlecase }},&nbsp;{{
+            employeDetails.state | titlecase
+          }},&nbsp;{{ employeDetails.country | titlecase }}</span
+        >
+      </div>
+      <div class="col-sm-12 mb-2">
+        <label for="address" class="mb-1 text-secondary">Nationality</label>
+        <br />
+        <span class="fw-bold fs-4">{{
+          employeDetails.nationality | titlecase
+        }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex profileStyle p-4 m-4">
+    <div class="d-flex width-type-profile">
+      <span class="material-icons text-white" style="font-size: 10rem"
+        >source</span
+      >
+    </div>
+    <div class="d-flex row text-white">
+      <div class="col-sm-12 mb-2">
+        <label for="address" class="mb-1 text-secondary">Pancard</label>
+        <br />
+        <span class="fw-bold fs-4"
+          >{{ employeDetails.panCard | uppercase }}
+        </span>
+      </div>
+      <div class="col-sm-12 mb-2">
+        <label for="address" class="mb-1 text-secondary">Nationality</label>
+        <br />
+        <span class="fw-bold fs-4">{{
+          employeDetails.nationality | titlecase
+        }}</span>
+      </div>
+    </div>
+  </div> -->
+</div>

@@ -1,0 +1,176 @@
+<div class="mt-2 align-items-center d-flex borderBottom" mat-dialog-title>
+  <div class="w-50 text-left">
+    <h2 class="mb-0 text-warning fs-3">Disclaimer: Flow of the application</h2>
+  </div>
+  <div
+    class="text-end w-50 fs-4 cursor-pointer"
+    (click)="close()"
+    aria-label="Close"
+  >
+    <mat-icon>close</mat-icon>
+  </div>
+</div>
+
+<div mat-dialog-content>
+  <h2 class="fw-bold">
+    Application is created on the version 16. Used interfaces/classes/enum as a
+    best practices.
+  </h2>
+  <ol>
+    <li>
+      Create multiple modules in angular application.
+      <ul class="text-dark">
+        There are 3 modules:
+        <li>
+          <b>Custom common module:</b> This module is used create common custom
+          pipe for the value transformation like sorting of employee/checking
+          value is null/ To clip the name/ Truncate the string/ some custom
+          component imported like error handling
+        </li>
+        <li>
+          <b>Employee Management system module:</b> This module consist the CRUD
+          operations i.e.. to create/ edit or update/ delete and view the list
+          of employee. Used FormsModule, FontAwesomeModule, MatButtonModule,
+          MatCardModule, NgSelectModule, MatTooltipModule,
+          CustomPipesAndFunctions, MatDatepickerModule, MatIconModule,
+          ReactiveFormsModule, MatRippleModule. User can also see the list of
+          employee's on clicking on single employee you can see there brief
+          details. This module have search by name functioanlity as well.
+        </li>
+        <li>
+          <b>Team Reports module:</b> This module is used to read only
+          functioanlity. User can see the reports of progress of task team
+          wise(Note: Progress are random dummy data for teams). User can see
+          team wise reports then employee of particular teams and details fo
+          particular employee (Three level drilling.)
+        </li>
+      </ul>
+    </li>
+    <li>
+      Create multiple components and link them using the routing concept.
+      <ul class="text-dark">
+        There are total 13 components used in this application.
+        <li>
+          <ol>
+            <h4 class="fw-bold">Shared Components</h4>
+            <li>
+              <b>Error/Success Component:</b> Component used for showing the
+              error/success msg to user while adding/ updating the employee
+            </li>
+            <li>
+              <b>Confirmation Component:</b> Component used for asking the
+              consent from user before deleting the employee details
+            </li>
+            <li>
+              <b>Application header:</b> Component used for showing the header
+              of application which will be visible to user after the successfull
+              authentication
+            </li>
+            <li>
+              <b>Application footer:</b> Component used for showing the footer
+              of application.
+            </li>
+            <li>
+              <b>Disclaimer component:</b> Used to show all the Disclaimer of
+              the application
+            </li>
+          </ol>
+        </li>
+        <li>
+          <ol class="mt-2 mb-0">
+            <h4 class="fw-bold">Authentication</h4>
+            <li>
+              <b>Login Component:</b> Component used for authentication the user
+            </li>
+          </ol>
+        </li>
+        <li>
+          <ol class="mt-2 mb-0">
+            <h4 class="fw-bold">Employee Management module:</h4>
+            <li>
+              <b>Four Components:</b> Component used for adding/ updating/
+              viewing employee and there details
+            </li>
+          </ol>
+        </li>
+        <li>
+          <ol class="mt-2 mb-0">
+            <h4 class="fw-bold">Teams Reporting module:</h4>
+            <li>
+              <b>Three Components:</b> Component used for viewing Teams/
+              employees in a teams and there details
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </li>
+    <li>
+      Share data among components using services
+      <ul class="text-dark">
+        There are 3 Services in this application.
+        <li>
+          <b>Authentication:</b> Service used to perform authentication of
+          application like login/ logout functions
+        </li>
+        <li>
+          <b>SetAndGetEmplyee :</b> Service used to perform adding and updating
+          the list of employee i.e sharing the data of employee between
+          components
+        </li>
+        <li>
+          <b>Utility Service :</b> Service used to set the token to cookies and
+          after succesfull authentication and remoing it when logout is perform
+        </li>
+      </ul>
+    </li>
+    <li>
+      Use Pipes
+      <ul class="text-dark">
+        There are 7-8 piped used in this application.
+        <li>
+          NullValuePipe, TruncatePipe, EmployeeSorting,
+          ConfirmationDialogeComponent, GenderPipe, ErrorDialogeComponent,
+          DesignationPipe, TeamPipe, ClipNamePipe, RolePipe there all pipes used
+        </li>
+      </ul>
+    </li>
+    <li>
+      JSON File not used
+      <ul>
+        Only created some constant for dropdown functioanlity and enums as App
+        Constants
+        <li>Designation list</li>
+        <li>Roles list</li>
+        <li>Teams list</li>
+        <li>Gender for radio</li>
+      </ul>
+    </li>
+    <li>
+      Used dependency injection and validation at their respective places
+      <ul>
+        <li>Created Authguards using authentication dependency</li>
+        <li>
+          Used created services as a dependency injection on respective places
+        </li>
+        <li>Added validation in add/update emplyee places</li>
+      </ul>
+    </li>
+    <li>
+      For Icons
+      <ul>
+        <li>Used material icons and material</li>
+      </ul>
+    </li>
+    <li>
+      Last but not least also used guards
+      <ul>
+        <li>Used guards for making Authorised access of the application</li>
+      </ul>
+    </li>
+  </ol>
+</div>
+<div mat-dialog-actions class="text-end justify-content-end">
+  <button mat-raised-button color="primary" (click)="clickedAccept()">
+    Procced to application
+  </button>
+</div>
