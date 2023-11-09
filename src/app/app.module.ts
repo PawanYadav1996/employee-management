@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {
@@ -26,11 +25,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { IntialDisclaimerDialogeComponent } from './commonComponents/intial-disclaimer-dialoge/intial-disclaimer-dialoge.component';
-// import { TeamsEmployeeDetailsComponent } from './teamsManagement/teams-employee-details/teams-employee-details.component';
-// import { TeamsListComponent } from './teamsManagement/teams-list/teams-list.component';
-// import { TeamsDetailsComponent } from './teamsManagement/teams-details/teams-details.component';
-// import { ErrorDialogeComponent } from './commonComponents/error-dialoge/error-dialoge.component';
-// import { ConfirmationDialogeComponent } from './commonComponents/confirmation-dialoge/confirmation-dialoge.component';
 
 @NgModule({
   declarations: [
