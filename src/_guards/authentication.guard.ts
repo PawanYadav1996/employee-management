@@ -1,9 +1,4 @@
-import {
-  ActivatedRouteSnapshot,
-  CanActivateFn,
-  Router,
-  RouterStateSnapshot,
-} from '@angular/router';
+import { CanActivateFn, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 import { inject } from '@angular/core';
